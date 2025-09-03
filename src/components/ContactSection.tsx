@@ -1,17 +1,17 @@
-import React, { useState } from 'react';
-import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
-import { Button } from '@/components/ui/button';
-import { Input } from '@/components/ui/input';
-import { Textarea } from '@/components/ui/textarea';
-import { Phone, Mail, MapPin, Clock, Facebook, Star } from 'lucide-react';
-import { useToast } from '@/hooks/use-toast';
+import React, { useState } from "react";
+import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
+import { Button } from "@/components/ui/button";
+import { Input } from "@/components/ui/input";
+import { Textarea } from "@/components/ui/textarea";
+import { Phone, Mail, MapPin, Clock, Facebook, Star } from "lucide-react";
+import { useToast } from "@/hooks/use-toast";
 
 const ContactSection = () => {
   const [formData, setFormData] = useState({
-    name: '',
-    email: '',
-    phone: '',
-    message: ''
+    name: "",
+    email: "",
+    phone: "",
+    message: "",
   });
   const { toast } = useToast();
 
@@ -21,13 +21,15 @@ const ContactSection = () => {
       title: "Message Sent!",
       description: "We'll get back to you as soon as possible.",
     });
-    setFormData({ name: '', email: '', phone: '', message: '' });
+    setFormData({ name: "", email: "", phone: "", message: "" });
   };
 
-  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
+  const handleChange = (
+    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
+  ) => {
     setFormData({
       ...formData,
-      [e.target.name]: e.target.value
+      [e.target.name]: e.target.value,
     });
   };
 
@@ -36,47 +38,48 @@ const ContactSection = () => {
       icon: <Phone className="w-6 h-6 text-primary" />,
       title: "Phone",
       content: "Call us for immediate assistance",
-      action: "tel:+1234567890"
+      action: "tel:+1234567890",
     },
     {
       icon: <Mail className="w-6 h-6 text-primary" />,
       title: "Email",
       content: "info@computershopnearme.com",
-      action: "mailto:info@computershopnearme.com"
+      action: "mailto:info@computershopnearme.com",
     },
     {
       icon: <MapPin className="w-6 h-6 text-primary" />,
       title: "Location",
       content: "Visit our shop for in-person service",
-      action: "#"
+      action:
+        "https://www.google.com/maps/place/COMPUTER+SHOP+NEAR+ME/@34.078021,-117.4230335,21z/data=!4m8!3m7!1s0x80c34cd58a9cf5e9:0xea1072f21657dd7d!8m2!3d34.0707415!4d-117.4080525!9m1!1b1!16s%2Fg%2F11c52rjl9t!5m1!1e1?authuser=0&entry=ttu&g_ep=EgoyMDI1MDgzMC4wIKXMDSoASAFQAw%3D%3D",
     },
     {
       icon: <Clock className="w-6 h-6 text-primary" />,
       title: "Hours",
       content: "Mon-Fri: 9AM-6PM, Sat: 10AM-4PM",
-      action: "#"
-    }
+      action: "#",
+    },
   ];
 
   const socialLinks = [
     {
       icon: <Star className="w-6 h-6" />,
       name: "Google Reviews",
-      url: "#",
-      color: "text-yellow-500"
+      url: "https://www.google.com/maps/place/COMPUTER+SHOP+MI+FAMILIA+LATINA/@34.0695354,-117.4106135,15z/data=!4m8!3m7!1s0x80c34cd58a9cf5e9:0xea1072f21657dd7d!8m2!3d34.0707527!4d-117.4080445!9m1!1b1!16s%2Fg%2F11c52rjl9t!5m1!1e1?authuser=0&entry=ttu&g_ep=EgoyMDI0MTIwNC4wIKXMDSoASAFQAw%3D%3D",
+      color: "text-yellow-500",
     },
     {
       icon: <Facebook className="w-6 h-6" />,
       name: "Facebook",
-      url: "#",
-      color: "text-blue-600"
+      url: "https://www.facebook.com/computershopnearme",
+      color: "text-blue-600",
     },
     {
       icon: <Star className="w-6 h-6" />,
       name: "Yelp",
-      url: "#",
-      color: "text-red-600"
-    }
+      url: "https://www.yelp.com/biz/computer-shop-near-me-bloomington",
+      color: "text-red-600",
+    },
   ];
 
   return (
@@ -85,8 +88,9 @@ const ContactSection = () => {
         <div className="text-center mb-16">
           <h2 className="text-3xl md:text-4xl font-bold mb-4">Contact Us</h2>
           <p className="text-lg text-muted-foreground max-w-3xl mx-auto">
-            Ready to get your tech issues resolved? Contact us today for fast and reliable service. 
-            We're here to help with all your computer needs.
+            Ready to get your tech issues resolved? Contact us today for fast
+            and reliable service. We're here to help with all your computer
+            needs.
           </p>
         </div>
 
@@ -130,7 +134,10 @@ const ContactSection = () => {
                   onChange={handleChange}
                   required
                 />
-                <Button type="submit" className="w-full bg-primary hover:bg-primary/90">
+                <Button
+                  type="submit"
+                  className="w-full bg-primary hover:bg-primary/90"
+                >
                   Send Message
                 </Button>
               </form>
@@ -172,7 +179,11 @@ const ContactSection = () => {
                       className="flex items-center space-x-2"
                       asChild
                     >
-                      <a href={social.url} target="_blank" rel="noopener noreferrer">
+                      <a
+                        href={social.url}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                      >
                         <span className={social.color}>{social.icon}</span>
                         <span>{social.name}</span>
                       </a>
@@ -187,7 +198,8 @@ const ContactSection = () => {
               <CardContent className="p-6 text-center">
                 <h3 className="font-bold text-accent mb-2">Remember</h3>
                 <p className="text-sm">
-                  You only pay for our service after we have left your machine in optimal condition!
+                  You only pay for our service after we have left your machine
+                  in optimal condition!
                 </p>
               </CardContent>
             </Card>
