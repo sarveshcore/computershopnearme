@@ -1,17 +1,19 @@
 import React, { useState } from "react";
 import { Button } from "@/components/ui/button";
-import { Menu, X } from "lucide-react";
+import { Menu, X, Languages } from "lucide-react";
+import { useLanguage } from "@/contexts/LanguageContext";
 
 const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const { language, toggleLanguage, t } = useLanguage();
 
   const navLinks = [
-    { href: "#home", label: "Home" },
-    { href: "#about", label: "About" },
-    { href: "#services", label: "Services" },
-    { href: "#graphics", label: "Graphics" },
-    { href: "#customers", label: "Customers" },
-    { href: "#contact", label: "Contact" },
+    { href: "#home", label: t("home") },
+    { href: "#about", label: t("about") },
+    { href: "#services", label: t("services") },
+    { href: "#graphics", label: t("graphics") },
+    { href: "#customers", label: t("customers") },
+    { href: "#contact", label: t("contact") },
   ];
 
   const scrollToSection = (href: string) => {
@@ -42,17 +44,42 @@ const Header = () => {
                 <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-gradient-to-r from-blue-500 to-purple-500 transition-all duration-300 group-hover:w-full"></span>
               </button>
             ))}
+            
+            {/* Language Toggle Button */}
+            <Button
+              variant="ghost"
+              size="sm"
+              onClick={toggleLanguage}
+              className="hover:bg-blue-50 hover:text-blue-600 transition-colors flex items-center gap-1"
+            >
+              <Languages size={16} />
+              {language.toUpperCase()}
+            </Button>
           </nav>
 
-          {/* Mobile Menu Button */}
-          <Button
-            variant="ghost"
-            size="icon"
-            className="md:hidden hover:bg-blue-50 hover:text-blue-600 transition-colors"
-            onClick={() => setIsMenuOpen(!isMenuOpen)}
-          >
-            {isMenuOpen ? <X size={24} /> : <Menu size={24} />}
-          </Button>
+          {/* Mobile Controls */}
+          <div className="md:hidden flex items-center gap-2">
+            {/* Language Toggle Button for Mobile */}
+            <Button
+              variant="ghost"
+              size="sm"
+              onClick={toggleLanguage}
+              className="hover:bg-blue-50 hover:text-blue-600 transition-colors flex items-center gap-1"
+            >
+              <Languages size={16} />
+              {language.toUpperCase()}
+            </Button>
+            
+            {/* Mobile Menu Button */}
+            <Button
+              variant="ghost"
+              size="icon"
+              className="hover:bg-blue-50 hover:text-blue-600 transition-colors"
+              onClick={() => setIsMenuOpen(!isMenuOpen)}
+            >
+              {isMenuOpen ? <X size={24} /> : <Menu size={24} />}
+            </Button>
+          </div>
         </div>
 
         {/* Mobile Navigation */}
