@@ -1,44 +1,41 @@
 import React from "react";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Computer, Globe, Palette, Cpu, Tv, FileText } from "lucide-react";
+import { useLanguage } from "@/contexts/LanguageContext";
 
 const ServicesSection = () => {
+  const { t } = useLanguage();
+  
   const services = [
     {
       icon: <Computer className="w-12 h-12 text-primary" />,
-      title: "Computer Repair",
-      description:
-        "Fast and reliable troubleshooting for all your tech issues. We handle hardware and software problems with expertise.",
+      title: t('computerRepairTitle'),
+      description: t('computerRepairDesc'),
     },
     {
       icon: <Globe className="w-12 h-12 text-primary" />,
-      title: "Web Design",
-      description:
-        "Clean, professional website creation that ensures a user-friendly experience and modern design.",
+      title: t('webDesignTitle'),
+      description: t('webDesignDesc'),
     },
     {
       icon: <Palette className="w-12 h-12 text-primary" />,
-      title: "Graphic Design",
-      description:
-        "Turn your ideas into stunning visuals with our professional graphic design services tailored to your needs.",
+      title: t('graphicDesignTitle'),
+      description: t('graphicDesignDesc'),
     },
     {
       icon: <Cpu className="w-12 h-12 text-primary" />,
-      title: "Custom PC Builds",
-      description:
-        "Personalized systems built to your specifications, ensuring every detail meets your computing needs.",
+      title: t('customPCTitle'),
+      description: t('customPCDesc'),
     },
     {
       icon: <Tv className="w-12 h-12 text-primary" />,
-      title: "TV Repair",
-      description:
-        "Professional television repair services to get your entertainment system back up and running.",
+      title: t('tvRepairTitle'),
+      description: t('tvRepairDesc'),
     },
     {
       icon: <FileText className="w-12 h-12 text-primary" />,
-      title: "Notary Services",
-      description:
-        "Convenient notary services for your important documents and legal paperwork needs.",
+      title: t('notaryTitle'),
+      description: t('notaryDesc'),
     },
   ];
 
@@ -50,12 +47,10 @@ const ServicesSection = () => {
       <div className="container mx-auto px-4">
         <div className="text-center mb-16">
           <h2 className="text-3xl md:text-4xl font-bold mb-4 bg-gradient-to-r from-purple-600 to-blue-600 bg-clip-text text-transparent">
-            Our Services
+            {t('servicesTitle')}
           </h2>
           <p className="text-lg text-muted-foreground max-w-3xl mx-auto">
-            Comprehensive computer and technology services to keep your devices
-            running smoothly. From repairs to custom builds, we've got you
-            covered.
+            {t('servicesDescription')}
           </p>
         </div>
 

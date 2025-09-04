@@ -1,43 +1,46 @@
 import React from 'react';
 import { Card, CardContent } from '@/components/ui/card';
 import { Star, Quote, Users } from 'lucide-react';
+import { useLanguage } from '@/contexts/LanguageContext';
 
 const CustomersSection = () => {
+  const { t } = useLanguage();
+  
   const testimonials = [
     {
       name: "Sarah Johnson",
       rating: 5,
       text: "Exceptional service! They fixed my laptop the same day and it's running better than ever. Highly recommend!",
-      service: "Computer Repair"
+      service: t('computerRepairTitle')
     },
     {
       name: "Mike Rodriguez",
       rating: 5,
       text: "Built me a custom gaming PC that exceeded all my expectations. Professional work and great prices.",
-      service: "Custom PC Build"
+      service: t('customPCTitle')
     },
     {
       name: "Emily Chen",
       rating: 5,
       text: "They designed a beautiful website for my business. The team was responsive and delivered exactly what I wanted.",
-      service: "Web Design"
+      service: t('webDesignTitle')
     }
   ];
 
   const stats = [
-    { number: "500+", label: "Happy Customers" },
-    { number: "1000+", label: "Repairs Completed" },
-    { number: "50+", label: "Custom PCs Built" },
-    { number: "100%", label: "Satisfaction Rate" }
+    { number: "5+", label: t('yearsExperience') },
+    { number: "1000+", label: t('devicesRepaired') },
+    { number: "98%", label: t('customerSatisfaction') },
+    { number: "24hr", label: t('responseTimeHours') }
   ];
 
   return (
     <section id="customers" className="py-20 bg-muted/50">
       <div className="container mx-auto px-4">
         <div className="text-center mb-16">
-          <h2 className="text-3xl md:text-4xl font-bold mb-4">Our Customers</h2>
+          <h2 className="text-3xl md:text-4xl font-bold mb-4">{t('customersTitle')}</h2>
           <p className="text-lg text-muted-foreground max-w-3xl mx-auto">
-            Don't just take our word for it. Here's what our satisfied customers have to say about our services.
+            {t('customersDescription')}
           </p>
         </div>
 
@@ -86,10 +89,9 @@ const CustomersSection = () => {
         <div className="mt-16 text-center">
           <div className="bg-background p-8 rounded-lg border-2 border-dashed border-primary/30">
             <Users className="w-16 h-16 text-primary mx-auto mb-4" />
-            <h3 className="text-2xl font-bold mb-4 text-primary">More Reviews Coming Soon</h3>
+            <h3 className="text-2xl font-bold mb-4 text-primary">{t('reviewsComingSoon')}</h3>
             <p className="text-muted-foreground">
-              We're collecting more customer testimonials and reviews. 
-              Your feedback helps us serve you better!
+              {t('reviewsComingSoonDesc')}
             </p>
           </div>
         </div>

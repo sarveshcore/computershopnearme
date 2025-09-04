@@ -1,31 +1,32 @@
 import React from "react";
 import { Card, CardContent } from "@/components/ui/card";
 import { CheckCircle, Clock, Laptop, Wrench } from "lucide-react";
+import { useLanguage } from "@/contexts/LanguageContext";
 import heroImage from "@/assets/computer-shop-storefront.jpg";
 
 const AboutSection = () => {
+  const { t } = useLanguage();
+  
   const features = [
     {
       icon: <Clock className="w-8 h-8 text-primary" />,
-      title: "Same-Day Solutions",
-      description: "Quick, same-day solutions for urgent repairs",
+      title: t('sameDayTitle'),
+      description: t('sameDayDesc'),
     },
     {
       icon: <Laptop className="w-8 h-8 text-primary" />,
-      title: "All Device Types",
-      description:
-        "Hardware/software fixes for Laptops, All-in-Ones, Desktops, Windows & macOS",
+      title: t('allDevicesTitle'),
+      description: t('allDevicesDesc'),
     },
     {
       icon: <Wrench className="w-8 h-8 text-primary" />,
-      title: "Specialized Care",
-      description: "Special maintenance for Apple devices and gaming computers",
+      title: t('specializedTitle'),
+      description: t('specializedDesc'),
     },
     {
       icon: <CheckCircle className="w-8 h-8 text-primary" />,
-      title: "Pay After Repair",
-      description:
-        "Only pay for the service after we have left your machine in optimal condition",
+      title: t('payAfterTitle'),
+      description: t('payAfterDesc'),
     },
   ];
 
@@ -39,12 +40,10 @@ const AboutSection = () => {
           {/* Left Column - Content */}
           <div>
             <h2 className="text-3xl md:text-4xl font-bold mb-6 bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">
-              About Computer Shop Near Me
+              {t('aboutTitle')}
             </h2>
             <p className="text-lg text-muted-foreground mb-6 leading-relaxed">
-              We are your trusted local computer repair and technology service
-              provider. With years of experience and a passion for technology,
-              we deliver reliable solutions for all your computer needs.
+              {t('aboutDescription')}
             </p>
 
             <div className="space-y-4 mb-8">
@@ -73,13 +72,13 @@ const AboutSection = () => {
                 <div className="text-2xl font-bold text-blue-600 mb-1">
                   500+
                 </div>
-                <div className="text-sm text-blue-700">Happy Customers</div>
+                <div className="text-sm text-blue-700">{t('happyCustomers')}</div>
               </div>
               <div className="text-center p-4 bg-gradient-to-br from-purple-50 to-purple-100 rounded-lg border border-purple-200">
                 <div className="text-2xl font-bold text-purple-600 mb-1">
                   24hr
                 </div>
-                <div className="text-sm text-purple-700">Response Time</div>
+                <div className="text-sm text-purple-700">{t('responseTime')}</div>
               </div>
             </div>
           </div>
