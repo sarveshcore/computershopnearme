@@ -79,10 +79,10 @@ const ContactSection = () => {
       <div className="container mx-auto px-4">
         <div className="text-center mb-16">
           <h2 className="text-3xl md:text-4xl font-bold mb-4 bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">
-            {t('contactTitle')}
+            {t("contactTitle")}
           </h2>
           <p className="text-lg text-muted-foreground max-w-3xl mx-auto">
-            {t('contactDescription')}
+            {t("contactDescription")}
           </p>
         </div>
 
@@ -93,7 +93,7 @@ const ContactSection = () => {
             <Card className="border-l-4 border-l-blue-500 shadow-lg hover:shadow-xl transition-shadow">
               <CardHeader className="bg-gradient-to-r from-blue-50 to-blue-100/50">
                 <CardTitle className="text-2xl font-bold text-blue-800">
-                  {t('contactHours')}
+                  {t("contactHours")}
                 </CardTitle>
               </CardHeader>
               <CardContent className="space-y-3">
@@ -138,52 +138,49 @@ const ContactSection = () => {
           <Card className="border-l-4 border-l-purple-500 shadow-lg hover:shadow-xl transition-shadow">
             <CardHeader className="bg-gradient-to-r from-purple-50 to-purple-100/50">
               <CardTitle className="text-purple-800">
-                {t('contactFormTitle')}
+                {t("contactFormTitle")}
               </CardTitle>
             </CardHeader>
             <CardContent>
-              <form onSubmit={handleSubmit} className="space-y-4">
+              {/* FormSubmit.co form */}
+              <form
+                action="https://formsubmit.co/sarveshsrinath@gmail.com"
+                method="POST"
+                className="space-y-4"
+              >
                 <div className="grid grid-cols-2 gap-4">
                   <Input
                     name="firstName"
-                    placeholder={t('namePlaceholder')}
-                    value={formData.firstName}
-                    onChange={handleChange}
+                    placeholder={t("namePlaceholder")}
                     required
                     className="border-purple-200 focus:border-purple-500 focus:ring-purple-500"
                   />
                   <Input
                     name="lastName"
-                    placeholder={t('namePlaceholder')}
-                    value={formData.lastName}
-                    onChange={handleChange}
+                    placeholder={t("namePlaceholder")}
                     required
                     className="border-purple-200 focus:border-purple-500 focus:ring-purple-500"
                   />
                 </div>
+
                 <Input
                   name="email"
                   type="email"
-                  placeholder={t('emailPlaceholder')}
-                  value={formData.email}
-                  onChange={handleChange}
+                  placeholder={t("emailPlaceholder")}
                   required
                   className="border-purple-200 focus:border-purple-500 focus:ring-purple-500"
                 />
+
                 <Input
                   name="phone"
                   type="tel"
-                  placeholder={t('contactPhone')}
-                  value={formData.phone}
-                  onChange={handleChange}
+                  placeholder={t("contactPhone")}
                   className="border-purple-200 focus:border-purple-500 focus:ring-purple-500"
                 />
-                <Select
-                  value={formData.service}
-                  onValueChange={handleServiceChange}
-                >
+
+                <Select name="service">
                   <SelectTrigger className="border-purple-200 focus:border-purple-500 focus:ring-purple-500">
-                    <SelectValue placeholder={t('servicesTitle')} />
+                    <SelectValue placeholder={t("servicesTitle")} />
                   </SelectTrigger>
                   <SelectContent>
                     <SelectItem value="it-support">IT Support</SelectItem>
@@ -199,24 +196,33 @@ const ContactSection = () => {
                     <SelectItem value="notary">Notary Services</SelectItem>
                   </SelectContent>
                 </Select>
+
                 <div className="space-y-2">
                   <Textarea
                     name="message"
-                    placeholder={t('messagePlaceholder')}
+                    placeholder={t("messagePlaceholder")}
                     className="min-h-[120px] resize-none border-purple-200 focus:border-purple-500 focus:ring-purple-500"
-                    value={formData.message}
-                    onChange={handleChange}
                     required
                   />
                   <div className="text-right text-sm text-purple-600 font-medium">
-                    {formData.message.length} of 500
+                    {/* Optional: You can remove character count if you don't track */}
+                    0 of 500
                   </div>
                 </div>
+
+                {/* Optional: Redirect to a thank you page */}
+                <input
+                  type="hidden"
+                  name="_next"
+                  value="https://yourdomain.com/thank-you"
+                />
+                <input type="hidden" name="_captcha" value="false" />
+
                 <Button
                   type="submit"
                   className="w-full bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 text-white font-semibold py-3 rounded-lg transition-all duration-300 transform hover:scale-105"
                 >
-                  {t('sendButton')}
+                  {t("sendButton")}
                 </Button>
               </form>
             </CardContent>
