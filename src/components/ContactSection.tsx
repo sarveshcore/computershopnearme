@@ -144,7 +144,7 @@ const ContactSection = () => {
             <CardContent>
               {/* FormSubmit.co form */}
               <form
-                action="https://formsubmit.co/sarveshsrinath@gmail.com"
+                action="https://formsubmit.co/jorgevaltierra2@gmail.com"
                 method="POST"
                 className="space-y-4"
               >
